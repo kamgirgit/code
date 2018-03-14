@@ -1,0 +1,52 @@
+#include<stdio.h>
+int main()
+{
+int i,j,r,x,t,a[510000],r1,i1,r2,k,n;
+scanf("%d",&t);
+while(t--)
+    {
+    i=0;
+    scanf("%d",&n);
+    x=n;
+    if(n<3)
+    {
+        if(n==1)
+        printf("1\n");
+        else if(n==2)
+            printf("2\n");
+    }
+    else
+    {
+    while(n!=0){
+    r=n%10;
+    a[i++]=r;
+    n=n/10;}
+    i1=0;j=0;r1=0;x--;//for(k1=0;k1<i;k1++)printf("%d",a[k1]);printf("\n%d",x);
+    while(1)
+        {
+        k=a[i1++]*x+r1;
+        r=k%10;
+        a[j++]=r;
+        r1=k/10;
+        //printf("%d %d %d",a[0],a[1],r1);//if(i1==2)break;
+        if(i1==i)
+        {//printf("ghgg");//printf("%d",i);
+       while(r1!=0)
+            {
+            r2=r1%10;
+            a[j++]=r2;
+            r1=r1/10;
+            }//for(i=0;i<j;i++)printf("%d",a[i]);
+            i1=0;r1=0;x--;i=j;j=0;
+            }//a[j++]=r1; i1=0;r1=0;x--;i=j;j=0;}
+            if(x==1)
+            break;
+            //printf("%d ",x);
+        }
+    i--;
+        for(;i>=0;i--)
+        printf("%d",a[i]);
+        printf("\n");
+        }
+    }
+}
